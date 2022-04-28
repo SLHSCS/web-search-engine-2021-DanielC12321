@@ -1,0 +1,25 @@
+{
+  "name": "web-search-engine-2021-danielc12321",
+  "version": "1.0.0",
+  "description": "[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=7552206&assignment_repo_type=AssignmentRepo)",
+  "main": "crawl.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://DanielC12321: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@github.com/SLHSCS/web-search-engine-2021-DanielC12321.git"
+  },
+  "author": "DC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SLHSCS/web-search-engine-2021-DanielC12321/issues"
+  },
+  "homepage": "https://github.com/SLHSCS/web-search-engine-2021-DanielC12321#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.3",
+    "robots-txt-parser": "^2.0.2"
+  }
+}
