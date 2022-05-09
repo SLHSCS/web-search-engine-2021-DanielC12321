@@ -26,51 +26,66 @@ app.listen(port, () => {
         res.status(404).send('key not found');
     }
     else{
-        doStuff(respo).then(function(result)
+      fs.readFile('scrapedata.json', function (err, data) {
+        var json = JSON.parse(data);
+        
+        for (let i of json["table"]) {
+          
+          
+          try{
+          if(i["content"].includes(s))
+          {
+           var scorexD =score.scoreHTML(i["content"], s);
+             if(scorexD>0 )
+             {
+              respo["numres"] = respo["numres"]+1;
+              try
+              {
+                var title2 = i["content"].match(/\<[tT]itle>([^()]*)\<\/[tT]itle>/)[1];
+              }
+              catch(error)
+              {
+                var title2 = "none";
+              }
+              let link = {
+                
+                title: title2,
+                url: i["url"],
+                score: scorexD
+            };
+            console.log(link);
+              respo["results"].push(link);
+              console.log("hi");
+              console.log(respo);
+             }
+             
+           
+           
+         
+           
+          }
+        }
+        catch(error)
         {
-          console.log(result);
-          res.status(200).send(result);
-        })
+
+        }
+          
+        
+          }
+          res.status(200).send(respo); 
+    });
+
+
+  
+ 
+
 
     }
  
     
 });
 
-async function doStuff(respo)
-{
-  fs.readFile('scrapedata.json', function (err, data) {
-    var json = JSON.parse(data);
-    
-    for (let i of json["table"]) {
-      
-      try{
-      if(i["content"].includes(s))
-      {
-       score.scoreRemote(i["url"], s).then(function(result) {
-         if(result>0 )
-         {
-          respo["numres"] = respo["results"]+1;
-          let link = {
-            url: i["url"],
-            score: result
-        };
-        console.log(link);
-          respo["results"].push(link);
-          
-         }
-         console.log(result);
-        console.log(i["url"]);
-       
-      });
-       
-      }
-      }
-      catch(error)
-      {
-        
-      }
-      }
-      
-});
-}
+
+  
+
+
