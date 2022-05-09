@@ -121,7 +121,7 @@ try {
   console.error(err)
 }
 
-   doStuff("https://www.reuters.com/article/us-usa-treasury-liquidity-explainer/explainer-u-s-treasurys-cash-drawdown-and-why-markets-care-idUSKBN2AM26A");
+   doStuff("https://en.wikipedia.org/wiki/Fast_food");
    
  console.log("hilow");
  
