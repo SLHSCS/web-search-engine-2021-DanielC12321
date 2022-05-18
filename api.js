@@ -23,7 +23,10 @@ app.listen(port, () => {
   };
     if(key!=123)
     {
-        res.status(404).send('key not found');
+      let ret ={
+        "error":"invalid key"
+      };
+        res.status(404).send(ret);
     }
     else{
       fs.readFile('scrapedata.json', function (err, data) {
@@ -100,7 +103,10 @@ app.get('/:key/:s', (req, res) => {
 };
   if(key!=123)
   {
-      res.status(404).send('key not found');
+    let ret ={
+      "error":"invalid key"
+    };
+      res.status(404).send(ret);
   }
   else{
     fs.readFile('scrapedata.json', function (err, data) {
